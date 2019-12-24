@@ -119,4 +119,15 @@ example-mynginx-nginx-app-7dfc477d84-kpnvx   1/1     Running   0          11m
 example-mynginx-nginx-app-7dfc477d84-z7h48   1/1     Running   0          11m
 ...
 ```
-
+### Cleanup
+If we want to delete the instance of the CRD we just created, merely execute
+```
+$ ~/junk/my-nginx-operator/deploy/crds $ kubectl delete MyNginx example-mynginx
+mynginx.charts.helm.k8s.io "example-mynginx" deleted
+$ ~/junk/my-nginx-operator/deploy/crds $ kubectl get po
+NAME                                         READY   STATUS        RESTARTS   AGE
+example-mynginx-nginx-app-7dfc477d84-8857k   0/1     Terminating   0          20m
+example-mynginx-nginx-app-7dfc477d84-9n5jt   0/1     Terminating   0          20m
+example-mynginx-nginx-app-7dfc477d84-z7h48   0/1     Terminating   0          20m
+...
+```
