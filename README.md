@@ -31,20 +31,24 @@ helm package nginx-app
 operator-sdk new my-nginx-operator --kind=MyNginx --type=helm --helm-chart nginx-app-0.1.0.tgz
 ```
 
+### Export your dockerhub username as a variable (makes running the following commands easier)
+```
+export DH_USER=<your dockerhub userid eg johnsmith>
+```
 ### Build the operator
 ```
 cd my-nginx-operator
-operator-sdk build vinaybalamuru/my-nginx-operator:0.1.0
+operator-sdk build $DH_USER/my-nginx-operator:0.1.0
 ```
 
 ### Push the operator to a Docker repository (DockerHub, in this case)
 ```
-docker push vinaybalamuru/my-nginx-operator:0.1.0
+docker push $DH_USER/my-nginx-operator:0.1.0
 ```
 
 ### Set the correct Docker image in the generated ```operator.yaml``` file
 ```
-sed -i "s|REPLACE_IMAGE|vinaybalamuru/my-nginx-operator:0.1.0|g" deploy/operator.yaml 
+sed -i "s|REPLACE_IMAGE|$DH_USER/my-nginx-operator:0.1.0|g" deploy/operator.yaml 
 ```
 
 #### Install the Operator
