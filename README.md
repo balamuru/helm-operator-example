@@ -13,14 +13,17 @@ A Helm Operator takes an existing Helm Chart as input and  magicallly creates a 
 ## Benefits of creating a Helm Operator
 * First Class K8s Citizen
 * Can be managed using kubectl commands
-* Multiple instances of a CRD can be created in a cluster(as opposed to a single instance for Helm Chart(
+* Multiple instances of a CRD can be created in a cluster(as opposed to a single instance for Helm Chart)
 
 ## Exammple
+### Objective
+The following example describes how to create. install and use a Helm Operator from a Helm Chart 
 ### PreRequisites
+* Install helm 
 * Install the [operator sdk ](https://github.com/operator-framework/operator-sdk/blob/master/doc/user/install-operator-sdk.md)
 * Login to your dockerhub account from the command line
 
-### Create a sample Helm application
+### Create a sample Helm application (using the standard Helm Nginx webserver example)
 ```
 helm create nginx-app
 helm package nginx-app
