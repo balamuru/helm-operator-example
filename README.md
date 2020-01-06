@@ -13,7 +13,6 @@ A Helm Operator takes an existing Helm Chart as input and  magicallly creates a 
 ## Benefits of creating a Helm Operator
 * First Class K8s Citizen
 * Can be managed using kubectl commands
-* Multiple instances of a CRD can be created in a cluster(as opposed to a single instance for Helm Chart)
 
 ## Exammple
 ### Objective
